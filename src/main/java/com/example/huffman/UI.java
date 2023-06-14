@@ -228,6 +228,7 @@ public class UI extends Application {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 long end = System.nanoTime();
+                System.out.println(end - start + "nano seconds");
                 System.exit(0);
             }
         });
