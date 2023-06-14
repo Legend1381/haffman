@@ -1,4 +1,6 @@
 package com.example.huffman;
+//represent priority queue
+
 
 import java.util.ArrayList;
 
@@ -9,6 +11,8 @@ public class PriorityQueue {
         queue.add(node);
         sort();
     }
+
+    //sort the queue every time one item added
     public void sort(){
         for (int i = 0; i < queue.size() - 1; i++) {
             for (int j = 0; j < queue.size() - i - 1; j++) {
@@ -21,17 +25,21 @@ public class PriorityQueue {
         }
     }
 
+    //constructor
     public PriorityQueue() {
     }
 
+    //remove one item
     public void remove(int i){
         queue.remove(i);
     }
 
+    //return summation of first two elements frequency
     public int sum(){
         return queue.get(0).frequency + queue.get(1).frequency;
     }
 
+    //choose wich element should be left node
     public Node left(){
         if (queue.get(0).frequency > queue.get(1).frequency){
             return queue.get(1);
@@ -39,6 +47,7 @@ public class PriorityQueue {
         return queue.get(0);
     }
 
+    //choose wich element should be left node
     public Node right(){
         if (queue.get(0).frequency > queue.get(1).frequency){
             return queue.get(0);
@@ -46,6 +55,7 @@ public class PriorityQueue {
         return queue.get(1);
     }
 
+    //check if we rich end of elements or not
     public boolean check(){
         if (queue.size() == 1){
             return false;
@@ -53,6 +63,7 @@ public class PriorityQueue {
         return true;
     }
 
+    //return tree root
     public Node return_root(){
         return queue.get(0);
     }

@@ -1,5 +1,6 @@
 package com.example.huffman;
 
+//read examples from file
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

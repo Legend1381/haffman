@@ -1,5 +1,7 @@
 package com.example.huffman;
 
+//node structure
+
 public class Node {
 
     String value;

@@ -1,11 +1,8 @@
 package com.example.huffman;
 
-import java.io.File;
+//the main class for huffman algorithm
 import java.util.ArrayList;
 import java.util.Objects;
-import javax.swing.JFrame;
-import javax.swing.JTree;
-import javax.swing.tree.DefaultMutableTreeNode;
 
 public class huffman {
 
@@ -14,6 +11,7 @@ public class huffman {
     static String all_results = "";
     static double compression = 0;
 
+    //main function and start of huffman algorithm
     public static void execute(String in){
         PriorityQueue queue = new PriorityQueue();
 
@@ -41,6 +39,8 @@ public class huffman {
         Compression_rate();
         System.out.println( result);
     }
+
+    //creating tree
     public static void tree(PriorityQueue queue){
         while (queue.check()){
             Node temp = new Node("null", queue.sum());
@@ -56,6 +56,8 @@ public class huffman {
 
     }
 
+
+    //traversing the tree to create codes
     public static void traversal(Node root, String code){
         if (root.right_node != null){
             traversal(root.right_node, code.concat("1"));
@@ -69,6 +71,7 @@ public class huffman {
         }
     }
 
+    //find char varity
     public static  ArrayList<Character> find_chars(String in){
         ArrayList<Character> alphabet = new ArrayList<>();
         alphabet.add(in.charAt(0));
@@ -89,6 +92,7 @@ public class huffman {
         return alphabet;
     }
 
+    //find char frequency
     public static int[] frequency(ArrayList<Character> alphabet,  String in){
         int[] frequency = new int[alphabet.size()];
 
@@ -103,6 +107,7 @@ public class huffman {
         return frequency;
     }
 
+    //calculating compression rate
     public static void Compression_rate(){
         int ascii_size = 0;
         int huffman_size = 0;
@@ -120,6 +125,8 @@ public class huffman {
         result = result.concat("Compression rate: %" + rate + "\n");
     }
 
+
+    //create encoded string
     public static void encode(String in){
         result = result.concat("Encoded String: ");
         for (int i = 0; i < in.length(); i++) {
@@ -132,6 +139,8 @@ public class huffman {
         result = result.concat("\n");
         result = result.concat("Decoded: " + in + "\n");
     }
+
+    //start huffman algorithm for examples
     public static void examples(){
         ArrayList<String> cases = file.reader();
         for (String aCase : cases) {
@@ -146,11 +155,13 @@ public class huffman {
         compression = 0;
     }
 
+    //reset values to default
     public static void reset(){
         result = "";
         chart.removeAll(chart);
     }
 
+    //show graphical tree
 //    public static void createDotGraph(String dotFormat,String fileName)
 //    {
 //        GraphViz gv=new GraphViz();
