@@ -13,6 +13,8 @@ public class huffman {
 
     //main function and start of huffman algorithm
     public static void execute(String in){
+        long start = System.nanoTime();
+
         PriorityQueue queue = new PriorityQueue();
 
         ArrayList<Character> alphabet = find_chars(in);
@@ -38,6 +40,8 @@ public class huffman {
         encode(in);
         Compression_rate();
         System.out.println( result);
+        long end = System.nanoTime();
+        System.out.println(end - start + " nano seconds");
     }
 
     //creating tree

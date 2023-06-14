@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class UI extends Application {
-    long start = System.nanoTime();
+
     @Override
     public void start(Stage stage) throws IOException {
         Rectangle rect = new Rectangle(1000, 667);
@@ -227,8 +227,7 @@ public class UI extends Application {
         exit.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                long end = System.nanoTime();
-                System.out.println(end - start + "nano seconds");
+
                 System.exit(0);
             }
         });
