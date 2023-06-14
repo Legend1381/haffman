@@ -1,5 +1,7 @@
 package com.example.huffman;
 
+//this class defines the UI & graphics
+
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
@@ -24,6 +26,7 @@ public class UI extends Application {
         Image background = new Image(new FileInputStream("src/main/resources/images/back.png"));
         rect.setFill(new ImagePattern(background));
 
+        //initialize the input text field
         TextArea input = new TextArea();
         input.setPromptText("Enter your text");
         input.setLayoutX(40);
@@ -37,6 +40,7 @@ public class UI extends Application {
             -fx-font-weight: bold;
                 """);
 
+        //initialize run button and it's effects
         Button run = new Button("Run");
         run.setLayoutX(820);
         run.setLayoutY(75);
@@ -78,6 +82,7 @@ public class UI extends Application {
             """);
         });
 
+        //initialize example button and it's effects
         Button examples = new Button("Examples");
         examples.setLayoutX(820);
         examples.setLayoutY(150);
@@ -119,6 +124,7 @@ public class UI extends Application {
             """);
         });
 
+        //initialize tree button and it's effects
         Button tree = new Button("Tree");
         tree.setLayoutX(820);
         tree.setLayoutY(225);
@@ -160,6 +166,7 @@ public class UI extends Application {
             """);
         });
 
+        //initialize end button and it's effects
         Button exit = new Button("Exit");
         exit.setLayoutX(820);
         exit.setLayoutY(550);
@@ -201,6 +208,7 @@ public class UI extends Application {
             """);
         });
 
+        //initialize the results text field
         TextArea result = new TextArea();
         result.setEditable(false);
         result.setLayoutX(40);
@@ -214,6 +222,7 @@ public class UI extends Application {
             -fx-font-weight: bold;
                 """);
 
+        //closes program when exit clicked
         exit.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -221,6 +230,7 @@ public class UI extends Application {
             }
         });
 
+        //starts encoding the string when run clicked
         run.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -229,6 +239,8 @@ public class UI extends Application {
                 huffman.reset();
             }
         });
+
+        //read examples from file and encode them
         examples.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -247,9 +259,12 @@ public class UI extends Application {
         stage.show();
     }
 
+    //putting example text file in input text field
     public void example(TextArea result){
         result.setText(huffman.all_results);
     }
+
+    //putting example text results in result text field
     public void ex_input(TextArea input){
         String temp = "";
         ArrayList<String> text = file.reader();
